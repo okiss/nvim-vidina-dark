@@ -170,12 +170,12 @@ local theme = lush(function(injected_functions)
 
     -- See :h lsp-highlight, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- LspReferenceText            { } , -- Used for highlighting "text" references
-    -- LspReferenceRead            { } , -- Used for highlighting "read" references
-    -- LspReferenceWrite           { } , -- Used for highlighting "write" references
+    LspReferenceText({ bg = palette.shadow }), -- Used for highlighting "text" references
+    LspReferenceRead({ bg = palette.shadow }), -- Used for highlighting "read" references
+    LspReferenceWrite({ bg = palette.shadow }), -- Used for highlighting "write" references
     -- LspCodeLens                 { } , -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
     -- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.
-    -- LspSignatureActiveParameter { } , -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
+    LspSignatureActiveParameter({ fg = palette.c3, bold = true }), -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
@@ -252,15 +252,16 @@ local theme = lush(function(injected_functions)
     -- sym"@field"             { }, -- Identifier
     -- sym"@property"          { }, -- Identifier
     -- sym"@constructor"       { }, -- Special
-    sym("@conditional")({ fg = palette.p3 }), -- Conditional
+    sym("@conditional")({ fg = palette.p3, bold = true }), -- Conditional
     sym("@conditional.ternary")({ fg = palette.p2 }), -- Conditional
     -- sym"@repeat"            { }, -- Repeat
     -- sym"@label"             { }, -- Label
     sym("@operator")({ fg = palette.p2 }), -- Operator
-    sym("@keyword")({ fg = palette.p3 }), -- Keyword
-    sym("@exception")({ fg = palette.p3 }), -- Exception
+    sym("@keyword")({ fg = palette.p3, bold = true }), -- Keyword
+    sym("@exception")({ fg = palette.p3, bold = true }), -- Exception
     -- sym"@variable"          { }, -- Identifier
-    sym("@type")({ fg = palette.p1 }), -- Type
+    sym("@type")({ fg = palette.f1 }), -- Type
+    sym("@type.definition")({ fg = palette.p1 }), -- Typedef
     -- sym"@storageclass"      { }, -- StorageClass
     -- sym"@structure"         { }, -- Structure
     -- sym"@namespace"         { }, -- Identifier
